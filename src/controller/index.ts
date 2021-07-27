@@ -66,8 +66,8 @@ class LoginService {
             console.debug("Error occured in saveUser");
             throw err;
         }
-
-
     }
+
+    
 }
 export default LoginService

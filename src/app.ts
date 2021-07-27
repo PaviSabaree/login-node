@@ -1,6 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import LoginClass from "./routes/index";
+import AuthRoute from "./routes/auth";
 import mongoose from 'mongoose'
 import bodyParser from 'body-parser'
 
@@ -21,9 +22,9 @@ app.get('/', (req: express.Request, res: express.Response) => {
 })
 
 app.use('/', new LoginClass().router)
+app.use('/', new AuthRoute().router)
 
-
-const db = 'mongodb+srv://Pavi:pavi@1993@cluster0.9rgsd.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+const db = ''
 
 mongoose.connect(db, {useNewUrlParser: true, useUnifiedTopology: true, }).then(() => {
     console.log("Successfully connected to the database !!");

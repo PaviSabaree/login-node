@@ -6,6 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const dotenv_1 = __importDefault(require("dotenv"));
 const index_1 = __importDefault(require("./routes/index"));
+const auth_1 = __importDefault(require("./routes/auth"));
 const mongoose_1 = __importDefault(require("mongoose"));
 const body_parser_1 = __importDefault(require("body-parser"));
 const app = express_1.default();
@@ -19,6 +20,7 @@ app.get('/', (req, res) => {
     });
 });
 app.use('/', new index_1.default().router);
+app.use('/', new auth_1.default().router);
 const db = 'mongodb+srv://Pavi:pavi@1993@cluster0.9rgsd.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
 mongoose_1.default.connect(db, { useNewUrlParser: true, useUnifiedTopology: true, }).then(() => {
     console.log("Successfully connected to the database !!");

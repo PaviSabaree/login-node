@@ -9,4 +9,6 @@ const LoginSchema = new mongoose.Schema({
 	password:{type: Number,
     required:true}
 })
+
+
 export const User= mongoose.model('Users',LoginSchema );

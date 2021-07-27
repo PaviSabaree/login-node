@@ -14,8 +14,10 @@ class LoginClass{
         this.router.get('/getLoginInfo/:id', this.getLoginInfo)
         this.router.put('/getLoginInfo/:id', this.updateLoginInfo)
         this.router.delete('/getLoginInfo/:id', this.deleteLoginInfo)
+        
         this.service = new LoginService()
     }
+  
 
     private checkSample = async (req: express.Request, res: express.Response) => {
         
@@ -48,13 +50,12 @@ class LoginClass{
         
         res.json(result)
     }
-
     private addLoginInfo = async (req: express.Request, res: express.Response) => {
 
         const username = req.body.username
         const email = req.body.email
         const password = req.body.password
-
+    
         console.log('username ==', username)
         console.log('email ==', email)
         console.log('password ==', password)
@@ -63,9 +64,11 @@ class LoginClass{
         
         res.json(result)
     }
-    
+
 }
 
+
 export default LoginClass
+
 
 
